@@ -13,7 +13,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "portfolio_bucket" {
   bucket = var.bucket_name
- 
+
   force_destroy = true
 
   tags = {
@@ -47,3 +47,4 @@ resource "aws_s3_bucket_policy" "public_policy" {
 }
 POLICY
 }
+
