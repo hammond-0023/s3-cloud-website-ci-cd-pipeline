@@ -6,6 +6,10 @@ on:
             - main
     workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read        
+
 jobs:
     list_s3_buckets:
         runs-on: ubuntu-latest
