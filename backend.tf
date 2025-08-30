@@ -80,11 +80,11 @@ resource "aws_iam_policy" "deploy_policy" {
   })
 }
 
- resource "aws_iam_policy" "github_actions_policy" {
+resource "aws_iam_policy" "github_actions_policy" {
   name        = "gha-terraform-policy"
   description = "Policy for GitHub Actions Terraform deployment"
 
-  policy      = jsonencode({
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
@@ -99,8 +99,8 @@ resource "aws_iam_policy" "deploy_policy" {
         Resource = aws_dynamodb_table.tf_lock.arn
       },
       {
-        Effect = "Allow"
-        Action = ["s3:ListBucket"]
+        Effect   = "Allow"
+        Action   = ["s3:ListBucket"]
         Resource = var.aws_state_lock_bucket_arn
       }
     ]
