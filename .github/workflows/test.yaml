@@ -1,6 +1,5 @@
 name: listing S3 Buckets
 
-
 on:
     push:
         branches:
@@ -15,7 +14,7 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v4
               with:
                   role-to-assume: ${{ secrets.IAM_ROLE}}
-                  AWS_REGION: ${{ secrets.AWS_REGION }}
+                  aws-region: ${{ secrets.AWS_REGION }}
 
             - name: List S3 Buckets
               env:
