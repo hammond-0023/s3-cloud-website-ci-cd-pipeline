@@ -15,11 +15,11 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v4
               with:
                   role-to-assume: ${{ secrets.IAM_ROLE}}
-                  AWS_REGION: eu-central-1
+                  AWS_REGION: ${{ secrets.AWS_REGION }}
 
             - name: List S3 Buckets
               env:
-                  AWS_REGION: eu-central-1
+                  AWS_REGION: ${{ secrets.AWS_REGION }}
               run: |
                   echo "Listing S3 Buckets"
                   aws s3 ls
